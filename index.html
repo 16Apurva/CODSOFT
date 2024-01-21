@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="grade.css" rel="stylesheet" type="text/css">
+    <title>Student Grade Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p style="text-align:left;"> -ApurvaG-</h4>
+    <h1>Student Grade Calculator</h1>
+    <h2>---Enter Obtained Marks out of 100---</h2>
+    <form id="gradeForm">
+        <div> 
+            Subject 1: <input type="number" id="subject1" required>
+        </div>
+        <br>
+        <div>
+            Subject 2: <input type="number" id="subject2" required>
+        </div>
+        <br>
+        <div>
+            Subject 3: <input type="number" id="subject3" required>
+        </div>
+        <br>
+        <div>
+            Subject 4: <input type="number" id="subject4" required>
+        </div>
+        <br>
+        
+        <img src="Capture.jpg"><br> 
+
+        <button type="button"
+        onclick="calculateGrade()">Overall Grade of Student: </button>
+    </form>
+
+    <h2>Results:</h2>
+    <p id="sum"></p>
+    <p id="average"></p>
+    <p id="grade"></p>
+
+    <script>
+        function calculateGrade() {
+            var subject1 = parseFloat(document.getElementById('subject1').value);
+            var subject2 = parseFloat(document.getElementById('subject2').value);
+            var subject3 = parseFloat(document.getElementById('subject3').value);
+            var subject4 = parseFloat(document.getElementById('subject4').value);
+
+            var sum = subject1 + subject2 + subject3+subject4;
+            var average = (subject1 + subject2 + subject3+subject4) / 4;
+            var grade = calculateGradeLetter(average);
+
+            document.getElementById('sum').innerHTML = "Total Marks: " + sum;
+            document.getElementById('average').innerHTML = "Percentage Average: " + average + '%';
+            document.getElementById('grade').innerHTML = "Grade: " + grade;
+        }
+
+        function calculateGradeLetter(average) {
+            if (average >= 90) {
+                return 'A+';
+            } else if (average >= 80) {
+                return 'B';
+            } else if (average >= 70) {
+                return 'C';
+            } else if (average >= 60) {
+                return 'D';
+            } else {
+                return 'Fail';
+            }
+        }
+    </script>
+</body>
+</html>
